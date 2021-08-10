@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react"
 import { AppContext } from "../AppContext/AppContext";
 import "./Listado.css"
+import Producto from "../Producto/Producto"
 
 let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ';
-let options = {header: {'Authorization': `Bearer ${token}`}}
+let options = {headers: {'Authorization': `Bearer ${token}`}}
 
 export default function Listado () {
 
@@ -13,6 +14,7 @@ export default function Listado () {
     try{
        let peticion = await fetch('https://coding-challenge-api.aerolab.co/products', options);
        let res = await peticion.json();
+       console.log(res)
        setProductos(res);
     }
     catch(error) {
@@ -25,15 +27,20 @@ export default function Listado () {
        obtenerProductos();
    },[]);
 
-   }
-
+  
     return(
          <div>
             { productos.length > 0 ? productos.map((item) =>{
                 return(
-                    item.
+                    <Producto
+                    key={item.id}
+                    imagen={item.img.url} 
+                    nombre={item.name}
+                    precio={item.cost}
+                    categoria={item.category}
+                    />
                 )
-            })}
+            }) : ("no hay productos")}
          </div>
-    )
+    );
 }
