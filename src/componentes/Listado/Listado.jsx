@@ -29,7 +29,7 @@ export default function Listado () {
 
   
     return(
-         <div>
+         <div className="listado">
             { productos.length > 0 ? productos.map((item) =>{
                 return(
                     <Producto
