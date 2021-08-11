@@ -1,39 +1,43 @@
-.contenedor-principal{
-    display: flex;
-    border: solid 1px #f1f9f8;
-    box-shadow: 5px 3px 5px 0px rgba(201, 201, 201, 0.86);
-    margin-bottom: 30px;
+.contenedor-principal {
+  display: flex;
+  width: 25%;
+  border: solid 1px #f1f9f8;
+  box-shadow: 5px 3px 5px 0px rgba(201, 201, 201, 0.86);
+  margin-bottom: 30px;
 }
 
-.producto{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid #000;
-    margin: 0.5rem 0;
-    
-  }
+.producto {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+ border: solid black 1px;
+  margin: 0.5rem 0;
+}
 
-.transparente{
-    position: absolute;
+.imagen{
+    border-bottom: 1px solid gray;
+}
+
+.transparente {
+  position: absolute;
   top: 0;
   left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    transition: all 0.5s;
-    background-color: #0ad4fa;
-    transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: all 0.5s;
+  background-color: #0ad4fa;
+  transform: translateX(-100%);
 }
 
 .producto:hover .transparente,
@@ -44,4 +48,49 @@
 .producto:hover img,
 .producto:active img {
   transform: translateX(100%);
+}
+
+.precio-moneda {
+  display: flex;
+  align-items: center;
+  
+}
+
+.precio {
+  display: flex;
+  font-size: 36px;
+  color: #ffffff;
+  letter-spacing: -0.08px;
+  text-align: center;
+  
+}
+
+.circulo-precio {
+  display: flex;
+  background-image: radial-gradient(50% -18%, #ffcf00 50%, #f7ae15 100%);
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background: #f8b013;
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+}
+
+
+.boton-comprar{
+    font-size:18px;
+color:#616161;
+letter-spacing:-0.04px;
+text-align:center;
+background:#ffffff;
+width:228px;
+height:42px;
+border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+border-color: transparent;
+margin-top: 20px;
+cursor: pointer;
 }
