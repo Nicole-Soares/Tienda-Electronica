@@ -6,7 +6,7 @@ import "./Filtrado.css";
 
 export default function Filtrado() {
   return (
-    <div className="contenedor-principal">
+    <div className="contenedor-principal-filtrado">
       <div className="productos">
         <span>16 of 32 products</span>
       </div>
