@@ -24,10 +24,9 @@ export default function Header() {
           src={header}
           alt="imagen de cabecera"
           height="412px"
-          
         />
         <div className="contenedor-titulo">
-        <h3 className="titulo">Electronics</h3>
+          <h3 className="titulo">Electronics</h3>
         </div>
       </div>
     </div>
