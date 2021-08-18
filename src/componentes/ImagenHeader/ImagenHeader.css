@@ -1,0 +1,19 @@
+.contenedor-imagen {
+    margin-top: 16px;
+  }
+  
+  .imagen {
+    width: 100%;
+  }
+  
+  .contenedor-titulo {
+    width: 20%;
+    height: 80px;
+    margin-left: 132px;
+    position: relative;
+    top: -100px;
+    font-size: 64px;
+    color: #ffffff;
+    text-align: left;
+  }
+  
