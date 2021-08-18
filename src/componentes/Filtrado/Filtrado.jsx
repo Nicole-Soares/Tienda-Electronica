@@ -1,23 +1,55 @@
 import React, { useState, useContext } from "react";
-import flechaI from "../../imagenes-filtrado/arrow-left.svg";
-import flechaD from "../../imagenes-filtrado/arrow-right.svg";
+import { AppContext } from "../AppContext/AppContext";
 
 import "./Filtrado.css";
 
 export default function Filtrado() {
+  const { productos, setProductos } = useContext(AppContext);
+  const { currentPage } = useContext(AppContext);
+  const { precioAlto, setPrecioAlto } = useContext(AppContext);
+  const PER_PAGE = 16;
 
-return (
+  const onChangePrecioElevado = () => {
+    
+    const nuevaLista = productos.filter((item) => item.cost > 1000);
+    return setProductos(nuevaLista);
+  };
+
+  const onChanguePrecioBarato = () => {
+    
+    const nuevaListaBarata = productos.filter((item) => item.cost < 999);
+    return setProductos(nuevaListaBarata);
+  };
+
+  const onChangueRecientes = () => {
+    
+    const nuevaListaRecientes = productos.filter(
+      (item) => item.category === "Phones" || item.category === "Audio"
+    );
+    return setProductos(nuevaListaRecientes);
+  };
+
+  return (
     <div className="contenedor-principal-filtrado">
       <div className="productos">
-        <span>16 of 32 products</span>
+        <span>
+          {" "}
+          {Math.min(PER_PAGE * currentPage, productos.length)} de{" "}
+          {productos.length} productos
+        </span>
       </div>
       <div className="contenedor-filtros">
         <span className="sort">Sort by:</span>
-        <button className="recent">Most recent</button>
-        <button className="priceLow">Lowest price</button>
-        <button className="priceHig">Highest price</button>
+        <button className="recent" onClick={onChangueRecientes}>
+          Most recent
+        </button>
+        <button className="priceLow" onClick={onChanguePrecioBarato}>
+          Lowest price
+        </button>
+        <button className="priceHig" onClick={onChangePrecioElevado}>
+          Highest price
+        </button>
       </div>
-      
 
       <br></br>
     </div>

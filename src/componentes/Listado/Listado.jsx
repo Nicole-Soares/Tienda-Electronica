@@ -13,6 +13,7 @@ let options = { headers: { Authorization: `Bearer ${token}` } };
 export default function Listado() {
   const [loading, setLoading] = useState(false);
   const { productos, setProductos } = useContext(AppContext);
+  const { currentPage, setCurrentPage} = useContext(AppContext);
 
   async function obtenerProductos() {
     setLoading(true);
@@ -27,38 +28,38 @@ export default function Listado() {
     } catch (error) {
       console.log(error);
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   useEffect(() => {
-    
     obtenerProductos();
-    
   }, []);
 
-  let [page, setPage] = useState(0);
+  
   const PER_PAGE = 16;
 
   const count = Math.ceil(productos.length / PER_PAGE);
+
   const _DATA = usePagination(productos, PER_PAGE);
 
   const handleChange = (e, p) => {
-    setPage(p);
+    setCurrentPage(p);
     _DATA.jump(p);
+    
   };
 
   return (
-    <Box p="5">
+    <div className="contenedor-de-todo">
       <Pagination
         count={count}
         size="large"
-        page={page}
+        page={ currentPage}
         variant="outlined"
         shape="rounded"
         onChange={handleChange}
       />
 
-      <ul>
+      <div className="grilla">
         {loading ? (
           "Loading"
         ) : productos.length > 0 ? (
@@ -79,16 +80,16 @@ export default function Listado() {
           <></>
         )}
         )
-      </ul>
+      </div>
 
       <Pagination
         count={count}
         size="large"
-        page={page}
+        page={currentPage}
         variant="outlined"
         shape="rounded"
         onChange={handleChange}
       />
-    </Box>
+    </div>
   );
 }
