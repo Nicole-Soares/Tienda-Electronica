@@ -6,24 +6,24 @@ import "./Filtrado.css";
 export default function Filtrado() {
   const { productos, setProductos } = useContext(AppContext);
   const { currentPage } = useContext(AppContext);
-  const { precioAlto, setPrecioAlto } = useContext(AppContext);
+  const { productosTotales } = useContext(AppContext);
   const PER_PAGE = 16;
 
   const onChangePrecioElevado = () => {
     
-    const nuevaLista = productos.filter((item) => item.cost > 1000);
+    const nuevaLista = productosTotales.filter((item) => item.cost > 1000);
     return setProductos(nuevaLista);
   };
 
   const onChanguePrecioBarato = () => {
     
-    const nuevaListaBarata = productos.filter((item) => item.cost < 999);
+    const nuevaListaBarata = productosTotales.filter((item) => item.cost < 999);
     return setProductos(nuevaListaBarata);
   };
 
   const onChangueRecientes = () => {
     
-    const nuevaListaRecientes = productos.filter(
+    const nuevaListaRecientes = productosTotales.filter(
       (item) => item.category === "Phones" || item.category === "Audio"
     );
     return setProductos(nuevaListaRecientes);

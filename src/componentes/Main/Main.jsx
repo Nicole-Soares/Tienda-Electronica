@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "../Header/Header"
-import Filtrado from "../Filtrado/Filtrado"
-import Listado from "../Listado/Listado"
-import ImagenHeader from "../ImagenHeader/ImagenHeader"
+import Header from "../Header/Header";
+import Filtrado from "../Filtrado/Filtrado";
+import Listado from "../Listado/Listado";
+import ImagenHeader from "../ImagenHeader/ImagenHeader";
 import Inicio from "../Header/Templates/Inicio";
 import Monedas from "../Header/Templates/Monedas";
 
@@ -11,13 +11,11 @@ function Main() {
   return (
     <main className="main">
       <Switch>
-          <Route exact path="/">
-          <Header />
-        <ImagenHeader/>
-        
-        <Filtrado />
-        <Listado />
-          </Route>
+        <Route  path="/tienda-electronica">
+          <ImagenHeader />
+          <Filtrado />
+          <Listado />
+        </Route>
         <Route path="/iniciarsesion">
           <Inicio />
         </Route>

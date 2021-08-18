@@ -1,75 +1,65 @@
-.header {
+nav {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 80px;
+  height: 70px;
 }
 
-.contenedor-icono-nombre-monedas {
+.nav-bar {
   display: flex;
+  width: 100%;
+  height: 50px;
+  list-style: none;
   justify-content: space-between;
-  height: 80px;
+  margin-top: 10px;
+}
+
+.nav-item {
   width: 100%;
 }
 
-.contenedor-icono {
+.contenedor-logo {
+  width: 100%;
+  margin-left: 10px;
+}
+
+.contenedor-sesion-moneda {
+  display: flex;
+  width: 20%;
+ 
+}
+
+.contenedor-sesion {
+  width: 50%;
+}
+
+.nav-item-sesion {
+  width: 50%;
+}
+.contenedor-moneda {
   display: flex;
   width: 50%;
-  height: 100%;
-
-  border: 8px solid pink;
 }
 
-.logo {
-  width: 39px;
-  height: 36px;
-  margin-top: 22px;
-  margin-left: 42px;
-}
-
-.contenedor-botones {
+.numero{
   display: flex;
-  width: 12%;
-  height: 100%;
-  justify-content: space-between;
-  margin-top: 16px;
+ width: 100%;
 }
 
-.boton-iniciar {
-  width: 94px;
-  height: 48px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: transparent;
-  color: gray;
-}
-
-.boton-monedas {
+.nav-item-monedas {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 103px;
-  height: 48px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: gainsboro;
-  border-color: transparent;
-  color: gray;
+}
+
+
+.moneda{
+ width: 100%;
+ display: flex;
 }
 
 .circulo {
   display: flex;
-  background-image: radial-gradient(50% -18%, #ffcf00 50%, #f7ae15 100%);
-  width: 24px;
-  height: 24px;
   border-radius: 100%;
   background: #f8b013;
-  width: 15px;
+  width: 50%;
   height: 15px;
 }
-
-

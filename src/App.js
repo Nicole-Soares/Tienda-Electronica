@@ -13,10 +13,7 @@ function App() {
       <BrowserRouter>
       <div className="App">
         <Header />
-        <ImagenHeader/>
         <Main/>
-        <Filtrado />
-        <Listado />
       </div>
       </BrowserRouter>
     </AppProvider>

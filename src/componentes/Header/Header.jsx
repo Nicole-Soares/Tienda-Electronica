@@ -10,21 +10,33 @@ export default function Header() {
   return (
     <header>
       <nav>
-        
         <ul className="nav-bar">
-        <Link to="/home">
-          <li className="nav-item">
-            <img src={aerolab} alt="logo" />
-          </li>
+          <Link to="/tienda-electronica">
+            <div className="contenedor-logo">
+              <li className="nav-item">
+                <img src={aerolab} alt="logo" />
+              </li>
+            </div>
           </Link>
-          <Link to="/iniciarsesion">
-            <li className="nav-item">iniciar sesion</li>
-          </Link>
-          <Link to="/monedas">
-            <li className="nav-item">
-              6000<div className="circulo"></div>
-            </li>
-          </Link>
+          <div className="contenedor-sesion-moneda">
+            <div className="contenedor-sesion">
+              <Link to="/iniciarsesion">
+                <li className="nav-item-sesion">iniciar sesion</li>
+              </Link>
+            </div>
+            <div className="contenedor-moneda">
+              <Link to="/monedas">
+                <div className="numero">
+                <li className="nav-item-monedas">
+                  6000
+                </li>
+                </div>
+                <div className="moneda">
+                <div className="circulo"></div>
+                </div>
+              </Link>
+            </div>
+          </div>
         </ul>
       </nav>
     </header>

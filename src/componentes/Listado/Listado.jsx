@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../AppContext/AppContext";
 import "./Listado.css";
-import { Box } from "@chakra-ui/react";
+
 import { Pagination } from "@material-ui/lab";
 import Producto from "../Producto/Producto";
 import usePagination from "../Paginacion/Paginacion";
@@ -14,6 +14,7 @@ export default function Listado() {
   const [loading, setLoading] = useState(false);
   const { productos, setProductos } = useContext(AppContext);
   const { currentPage, setCurrentPage} = useContext(AppContext);
+  const { setProductosTotales} = useContext(AppContext);
 
   async function obtenerProductos() {
     setLoading(true);
@@ -24,6 +25,7 @@ export default function Listado() {
       );
       let res = await peticion.json();
       console.log(res);
+      setProductosTotales(res);
       setProductos(res);
     } catch (error) {
       console.log(error);
