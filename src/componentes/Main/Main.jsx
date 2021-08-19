@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "../Header/Header";
 import Filtrado from "../Filtrado/Filtrado";
 import Listado from "../Listado/Listado";
 import ImagenHeader from "../ImagenHeader/ImagenHeader";

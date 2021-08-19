@@ -1,7 +1,5 @@
 import React from "react";
-
 import aerolab from "../../imagenes/aerolab-logo.svg";
-import Inicio from "./Templates/Inicio";
 
 import "./Header.css";
 import { Link } from "react-router-dom";

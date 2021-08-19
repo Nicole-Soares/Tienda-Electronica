@@ -1,44 +1,54 @@
-import React, {useState} from "react";
-import "./Inicio.css"
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../AppContext/AppContext";
+import "./Inicio.css";
 
-export default function Inicio() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function Inicio() {
   const [error, setError] = useState(false);
+  const [registrar, setRegistrar] = useState(false);
+  const [loggedIn, setLoggedIn]  = useState(false);
+  const {username, setUsername} = useContext(AppContext);
+  const {password, setPassword} = useContext(AppContext);
+  const {email, setEmail} = useContext( AppContext);
+  const {usernameRegistrar, setUsernameRegistrar} = useContext(AppContext);
+  const {passwordRegistrar, setPasswordRegistrar} = useContext(AppContext);
 
-  const handleInputChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleInputChangeDos = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (username === "username" || username === "") {
-      setError(true);
-    } else {
-      setError(false);
+  const login = async () => {
+    if(password.length < 6 || password === "" || username.length < 6 || username === "" ) {
+      setError(true)
     }
-  };
-
-  console.log(password.length);
-
-  const handlePass = (e) => {
-    e.preventDefault();
-
-    if (password.length < 6 || password === "") {
-      setError(true);
-    } else {
-      setError(false);
+    else{
+      setError(false)
+      try {
+        let peticion = await fetch(
+          "http://localhost:5000/login",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              username: username,
+              password: password
+            }),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+          
+          }
+        )
+        let res = await peticion.json();
+        if(!res.error) { setLoggedIn(true) }
+      } catch (error) {
+        console.log(error);
+      }
     }
-  };
-  return (
-    <div className="flex-container centered">
-      <div className="card ">
-        <form className="form" onSubmit={handleSubmit}>
+    
+  }
+
+  const logout = () => {
+    setLoggedIn(false)
+  }
+  
+  if(loggedIn) { return (<button onClick={logout}>Logout</button>)}
+  else {
+    return (
+      <div className="flex-container centered">
+        <div className={`card-login ${registrar ? "transparente" : ""}`}>
           <div className="inputContainer">
             <input
               className={`${error ? "hasError" : "otra"}`}
@@ -47,7 +57,9 @@ export default function Inicio() {
               value={username}
               name="username"
               type="text"
-              onChange={handleInputChange}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
             />
             <span className={`${error ? "visible" : ""} error`}>
               Verifica los datos, user no puede ser "username" o vacio
@@ -57,7 +69,9 @@ export default function Inicio() {
             <input
               className={`${error ? "hasError" : "otra"}`}
               value={password}
-              onChange={handleInputChangeDos}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               placeholder="password"
               name="password"
               type="password"
@@ -66,11 +80,68 @@ export default function Inicio() {
               Verifica los datos, pass no puede ser "password" o vacio
             </span>
           </div>
-          <button onClick={handlePass} className="btn">
+          <button onClick={login} className="btn">
             Login
           </button>
-        </form>
+          <button
+            className="boton-registrarse"
+            onClick={() => setRegistrar(!registrar)}>
+            Registrarse
+          </button>
+        </div>
+        <div className={`card-registrar ${registrar ? "visible" : " "}`}>
+          <div className="inputContainer">
+            <input
+              className={`${error ? "hasError" : "otra"}`}
+              autoComplete="off"
+              placeholder="username"
+              value={usernameRegistrar}
+              name="username"
+              type="text"
+              onChange={(e) => {
+                setUsernameRegistrar(e.target.value);
+              }}
+            />
+            <span className={`${error ? "visible" : ""} error`}>
+              Verifica los datos, user no puede ser "username" o vacio
+            </span>
+          </div>
+          <div className="inputContainer">
+            <input
+              className={`${error ? "hasError" : "otra"}`}
+              value={passwordRegistrar}
+              onChange={(e)=>{setPasswordRegistrar(e.target.value)}}
+              placeholder="password"
+              name="password"
+              type="password"
+            />
+            <span className={`${error ? "visible" : ""} error`}>
+              Verifica los datos, pass no puede ser "password" o vacio
+            </span>
+          </div>
+          <div className="inputContainer">
+            <input
+              className={`${error ? "hasError" : "otra"}`}
+              value={email}
+              onChange={(e)=>{setEmail(e.target.value)}}
+              placeholder="email"
+              name="email"
+              type="email"
+            />
+            <span className={`${error ? "visible" : ""} error`}>
+              Verifica los datos, pass no puede ser "password" o vacio
+            </span>
+          </div>
+          <button  className="btn">
+            Registrarse
+          </button>
+          <button className="boton-volver" onClick={()=>setRegistrar(!registrar)}>Volver</button>
+        </div>
       </div>
-    </div>
-  );
+    );
+    
+    
+  }
 }
+
+export default Inicio;
