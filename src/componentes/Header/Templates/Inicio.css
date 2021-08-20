@@ -1,4 +1,12 @@
 
+
+.boton-desconectarse{
+  color: blue;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
   .flex-container {
     display: flex;
     height: 90vh;

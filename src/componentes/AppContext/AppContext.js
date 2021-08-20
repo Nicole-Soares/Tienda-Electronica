@@ -13,6 +13,8 @@ export default function AppProvider({ children }) {
   const [email, setEmail] = useState("");
   const [usernameRegistrar, setUsernameRegistrar] = useState("");
   const [passwordRegistrar, setPasswordRegistrar] = useState("");
+  const [loggedIn, setLoggedIn]  = useState(false);
+  const [user, setUser] = useState (null)
 
   return (
     <AppContext.Provider
@@ -37,6 +39,10 @@ export default function AppProvider({ children }) {
         setUsernameRegistrar,
         passwordRegistrar,
         setPasswordRegistrar,
+        loggedIn, 
+        setLoggedIn,
+        user,
+        setUser
       }}
     >
       {children}

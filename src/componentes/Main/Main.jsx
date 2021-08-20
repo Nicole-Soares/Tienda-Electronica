@@ -5,6 +5,7 @@ import Listado from "../Listado/Listado";
 import ImagenHeader from "../ImagenHeader/ImagenHeader";
 import Inicio from "../Header/Templates/Inicio";
 import Monedas from "../Header/Templates/Monedas";
+import Header from "../Header/Header";
 
 function Main() {
   return (
@@ -16,6 +17,7 @@ function Main() {
           <Listado />
         </Route>
         <Route path="/iniciarsesion">
+         
           <Inicio />
         </Route>
         <Route path="/monedas" component={Monedas} />
