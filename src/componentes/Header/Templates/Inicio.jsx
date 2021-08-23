@@ -2,6 +2,12 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../AppContext/AppContext";
 import "./Inicio.css";
 
+
+
+
+let token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
+
 function Inicio() {
   const [error, setError] = useState(false);
   const [registrar, setRegistrar] = useState(false);
@@ -11,26 +17,19 @@ function Inicio() {
   const { email, setEmail } = useContext(AppContext);
   const { usernameRegistrar, setUsernameRegistrar } = useContext(AppContext);
   const { passwordRegistrar, setPasswordRegistrar } = useContext(AppContext);
-  const { user, setUser } = useContext(AppContext);
+  const { user,setUser } = useContext(AppContext);
 
   const login = async () => {
     if (
-      password.length < 6 ||
-      password === "" ||
-      username.length < 6 ||
+     password === "" ||
       username === ""
     ) {
       setError(true);
     } else {
       setError(false);
       try {
-        let peticion = await fetch("http://localhost:5000/login", {
-          method: "POST",
-          body: JSON.stringify({
-            username: username,
-            password: password,
-          }),
-          headers: { "Content-type": "application/json; charset=UTF-8" },
+        let peticion = await fetch("https://coding-challenge-api.aerolab.co/user/me", { 
+          headers: { "Authorization": `Bearer ${token}`  },
         });
         let res = await peticion.json();
         setUser(res);
@@ -53,8 +52,8 @@ function Inicio() {
         </button>
         <div>
           <div>
-            <h3>Nicole</h3>
-            <h3>2000</h3>
+            <h3>{user.name}</h3>
+            <h3>{user.points}</h3>
           </div>
           ) )
         </div>

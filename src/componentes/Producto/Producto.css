@@ -9,6 +9,7 @@
   columns: 3;
 }
 
+
 .producto {
   display: flex;
   flex-direction: column;

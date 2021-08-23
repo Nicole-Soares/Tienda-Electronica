@@ -1,6 +1,5 @@
 import React, {  useContext } from "react";
 import { AppContext } from "../AppContext/AppContext";
-
 import "./Filtrado.css";
 
 export default function Filtrado() {

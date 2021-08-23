@@ -24,14 +24,14 @@ export default function Header() {
             <div className="contenedor-sesion">
               <Link to="/iniciarsesion">
                 
-                <li className="nav-item-sesion">{loggedIn ? user.username : "iniciar sesion"}</li>
+                <li className="nav-item-sesion">{loggedIn ? user.name : "iniciar sesion"}</li>
               </Link>
             </div>
             
             <div className="contenedor-moneda">
               <Link to="/monedas">
                 <div className="numero">
-                <li className="nav-item-monedas"> {loggedIn ? user.coins : "0 monedas"}
+                <li className="nav-item-monedas"> {loggedIn ? user.points : "0 monedas"}
                  
                 </li>
                 </div>

@@ -44,7 +44,7 @@ export default function Listado() {
 
   const _DATA = usePagination(productos, PER_PAGE);
 
-  const handleChange = (e, p) => {
+  const handleChange = ( p) => {
     setCurrentPage(p);
     _DATA.jump(p);
     
