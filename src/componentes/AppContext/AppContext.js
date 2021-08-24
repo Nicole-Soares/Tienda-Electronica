@@ -14,7 +14,7 @@ export default function AppProvider({ children }) {
   const [usernameRegistrar, setUsernameRegistrar] = useState("");
   const [passwordRegistrar, setPasswordRegistrar] = useState("");
   const [loggedIn, setLoggedIn]  = useState(false);
-  const [user, setUser] = useState (null)
+  const [user, setUser] = useState ([])
   
 
   return (

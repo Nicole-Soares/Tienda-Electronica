@@ -1,0 +1,9 @@
+.input-monto{
+  width: 50%;
+}
+
+.boton-busqueda{
+    border: black 1px solid;
+    width: 50%;
+    cursor: pointer;
+}

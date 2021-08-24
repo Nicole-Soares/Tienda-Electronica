@@ -9,3 +9,13 @@ Authorization: Bearer {{token}}
 
 GET https://coding-challenge-api.aerolab.co/user/me HTTP/1.1
 Authorization: Bearer {{token}}
+
+
+### Post de Points
+POST https://coding-challenge-api.aerolab.co/user/points HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "amount": 150
+}

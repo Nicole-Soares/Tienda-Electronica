@@ -6,8 +6,18 @@ import buy from "../../imagenes/buy-blue.svg";
 
 
 export default function Producto(props) {
-  const { user, loggedIn } = useContext(AppContext);
+  const { user, setUser, loggedIn } = useContext(AppContext);
   
+
+
+
+  const submit = () =>{
+    if(user.points >= props.precio){
+      setUser({...user,
+      points:user.points - props.precio})
+    }
+    
+  }
 
   
 
@@ -31,7 +41,7 @@ export default function Producto(props) {
             {!loggedIn ? (
               <img src={buy} alt="bolsa compra"></img>
             ) : user.points === props.precio || user.points> props.precio ? (
-              <button className="boton-comprar">
+              <button className="boton-comprar" onClick={submit} >
                 Redeem Now
               </button>
             ) : (

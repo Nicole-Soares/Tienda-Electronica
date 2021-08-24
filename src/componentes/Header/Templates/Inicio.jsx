@@ -2,9 +2,6 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../AppContext/AppContext";
 import "./Inicio.css";
 
-
-
-
 let token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
 
@@ -54,6 +51,7 @@ function Inicio() {
           <div>
             <h3>{user.name}</h3>
             <h3>{user.points}</h3>
+            <h3>Historial de points:{user.redeemHistory}</h3>
           </div>
           ) )
         </div>
