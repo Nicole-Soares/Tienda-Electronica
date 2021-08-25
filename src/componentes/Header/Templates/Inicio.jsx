@@ -14,20 +14,20 @@ function Inicio() {
   const { email, setEmail } = useContext(AppContext);
   const { usernameRegistrar, setUsernameRegistrar } = useContext(AppContext);
   const { passwordRegistrar, setPasswordRegistrar } = useContext(AppContext);
-  const { user,setUser } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
 
   const login = async () => {
-    if (
-     password === "" ||
-      username === ""
-    ) {
+    if (password === "" || username === "") {
       setError(true);
     } else {
       setError(false);
       try {
-        let peticion = await fetch("https://coding-challenge-api.aerolab.co/user/me", { 
-          headers: { "Authorization": `Bearer ${token}`  },
-        });
+        let peticion = await fetch(
+          "https://coding-challenge-api.aerolab.co/user/me",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         let res = await peticion.json();
         setUser(res);
         setLoggedIn(true);
@@ -53,7 +53,6 @@ function Inicio() {
             <h3>{user.points}</h3>
             <h3>Historial de points:{user.redeemHistory}</h3>
           </div>
-          ) )
         </div>
       </div>
     );
@@ -61,6 +60,7 @@ function Inicio() {
     return (
       <div className="flex-container centered">
         <div className={`card-login ${registrar ? "transparente" : ""}`}>
+        <p>(el usuario y la contraseña pueden ser cualquiera (no dejar campos vacios), no esta conectado a una api que acepte recibir usuarios nuevos y el registrar es meramente estetico :))</p>
           <div className="inputContainer">
             <input
               className={`${error ? "hasError" : "otra"}`}

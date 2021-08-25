@@ -15,6 +15,10 @@ export default function Producto(props) {
     if(user.points >= props.precio){
       setUser({...user,
       points:user.points - props.precio})
+      window.alert("transaccion exitosa!")
+    }
+    else{
+      window.alert("La transaccion no se puede hacer")
     }
     
   }

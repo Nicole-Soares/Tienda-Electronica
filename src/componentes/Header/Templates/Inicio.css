@@ -12,6 +12,10 @@
     height: 90vh;
   }
 
+  p{
+    display: flex;
+  }
+
   .card-login {
     width: 20%;
     height:280px;
