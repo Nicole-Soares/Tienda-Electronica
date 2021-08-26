@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
-import imagen from "../../../imagenes/imagen-perfil.jpg"
+import imagen from "../../../imagenes/imagen-perfil.jpg";
 import { AppContext } from "../../AppContext/AppContext";
 import "./Inicio.css";
 import useInicio from "../Templates/customhooks/useInicio";
+import usePagination from "../../Listado/customhooks/Paginacion/Paginacion";
+import { Pagination } from "@material-ui/lab";
 
 function Inicio() {
   const { error } = useContext(AppContext);
@@ -16,32 +18,60 @@ function Inicio() {
   const { user } = useContext(AppContext);
   const { historial } = useContext(AppContext);
   const { login, logout, submit } = useInicio();
-  const {mostrarHistorial} = useContext(AppContext)
+  const { mostrarHistorial } = useContext(AppContext);
+  const { currentPage, setCurrentPage } = useContext(AppContext);
+
+  const PER_PAGE = 5;
+
+  const count = Math.ceil(historial.length / PER_PAGE);
+
+  const _DATA = usePagination(historial, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setCurrentPage(p);
+    _DATA.jump(p);
+  };
 
   if (loggedIn) {
     return (
       <div className="fondo-perfil">
-       
         <div>
-          <img className="imagen-perfil-usuario"src={imagen} alt="imagen-perfil" width="80%"/>
+          <img
+            className="imagen-perfil-usuario"
+            src={imagen}
+            alt="imagen-perfil"
+            width="80%"
+          />
         </div>
         <div>
           <div>
             <h3 className="usuario-nombre">{user.name}</h3>
             <h3 className="usuario-puntos">Points:{user.points}</h3>
+            <Pagination
+              count={count}
+              size="large"
+              page={currentPage}
+              variant="outlined"
+              shape="rounded"
+              onChange={handleChange}
+            />
             <h3 className="historial-usuario">
               Historial de points:
-              {mostrarHistorial ? historial.length > 0
-                ? historial.map((item) => {
-                    return <h2>{`compro: ${item.name}`}</h2>;
-                  })
-                : "no hay historial por el momento" : ""}
+              {mostrarHistorial
+                ? historial.length > 0
+                  ? _DATA.currentData().map((item) => {
+                      return <h2>{`compro: ${item.name}`}</h2>;
+                    })
+                  : "no hay historial por el momento"
+                : ""}
             </h3>
-            <button className="boton-historial" onClick={submit}>{`${mostrarHistorial ? "ocultar historial" : "mostrar historial"}`}</button>
+            <button className="boton-historial" onClick={submit}>{`${
+              mostrarHistorial ? "ocultar historial" : "mostrar historial"
+            }`}</button>
           </div>
           <button className="boton-desconectarse" onClick={logout}>
-          Logout
-        </button>
+            Logout
+          </button>
         </div>
       </div>
     );

@@ -11,7 +11,7 @@
 
   .flex-container {
     display: flex;
-    height: 90vh;
+    height: 50%;
   }
 
   p{
@@ -20,14 +20,16 @@
 
   .card-login {
     width: 20%;
-    height:280px;
+    height:100%;
     border-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: -5px 6px 17px -6px rgba(0, 0, 0, 0.75);
-    display: inline-block;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
     background-color: #1FCAD2;
     
   }
