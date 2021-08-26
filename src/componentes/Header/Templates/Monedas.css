@@ -1,9 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+
+.contenedor-principal-monedas{
+  background-image: url("../../../imagenes/monedas.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.puntos-usuario{
+ font-size: 50px;
+}
+
+.texto-advertencia{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+.monedas-disponibles{
+  font-size: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .input-monto{
-  width: 50%;
+  width: 100%;
+  box-shadow: 10px 3px 18px 0px rgba(50, 50, 50, 0.51);
 }
 
 .boton-busqueda{
-    border: black 1px solid;
-    width: 50%;
+    width: 100%;
     cursor: pointer;
+    box-shadow: 10px 3px 18px 0px rgba(50, 50, 50, 0.51);
+    border-radius: 100px;
+}
+
+.boton-busqueda:hover{
+  color: blue;
 }

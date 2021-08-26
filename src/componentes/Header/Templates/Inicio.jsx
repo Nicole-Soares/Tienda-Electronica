@@ -1,96 +1,47 @@
 import React, { useContext, useState } from "react";
-import { useEffect } from "react";
+import imagen from "../../../imagenes/imagen-perfil.jpg"
 import { AppContext } from "../../AppContext/AppContext";
 import "./Inicio.css";
-
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
+import useInicio from "../Templates/customhooks/useInicio";
 
 function Inicio() {
-  const [error, setError] = useState(false);
+  const { error } = useContext(AppContext);
   const [registrar, setRegistrar] = useState(false);
-  const { loggedIn, setLoggedIn } = useContext(AppContext);
+  const { loggedIn } = useContext(AppContext);
   const { username, setUsername } = useContext(AppContext);
   const { password, setPassword } = useContext(AppContext);
   const { email, setEmail } = useContext(AppContext);
   const { usernameRegistrar, setUsernameRegistrar } = useContext(AppContext);
   const { passwordRegistrar, setPasswordRegistrar } = useContext(AppContext);
-  const { user, setUser } = useContext(AppContext);
-  const [historial, setHistorial] = useState("");
-
-  const login = async () => {
-    if (password === "" || username === "") {
-      setError(true);
-    } else {
-      setError(false);
-      try {
-        let peticion = await fetch(
-          "https://coding-challenge-api.aerolab.co/user/me",
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        let res = await peticion.json();
-        setUser(res);
-        setLoggedIn(true);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-/*useEffect(() => {
-    try {
-      fetch("https://coding-challenge-api.aerolab.co/user/history", {
-        header: { Authorization: `Bearer ${token}` },
-      })
-        .then((respuesta) => {
-          respuesta.json();
-        })
-        .then((data) => {
-          console.log(data)
-          setHistorial(data);
-          
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  }, [setUser]); */
-
-  const logout = () => {
-    setLoggedIn(false);
-  };
-
-  const submit = async() =>{
-    try{
-      let peticion= await fetch("https://coding-challenge-api.aerolab.co/user/history" , {
-        header: { Authorization: `Bearer ${token}`}});
-      let res = await peticion.json();
-      setHistorial(res)
-    } catch(error){
-      console.log(error)
-    }
-  }
+  const { user } = useContext(AppContext);
+  const { historial } = useContext(AppContext);
+  const { login, logout, submit } = useInicio();
+  const {mostrarHistorial} = useContext(AppContext)
 
   if (loggedIn) {
     return (
-      <div>
-        <button className="boton-desconectarse" onClick={logout}>
-          Logout
-        </button>
+      <div className="fondo-perfil">
+       
+        <div>
+          <img className="imagen-perfil-usuario"src={imagen} alt="imagen-perfil" width="80%"/>
+        </div>
         <div>
           <div>
-            <h3>{user.name}</h3>
-            <h3>{user.points}</h3>
-            <h3>
+            <h3 className="usuario-nombre">{user.name}</h3>
+            <h3 className="usuario-puntos">Points:{user.points}</h3>
+            <h3 className="historial-usuario">
               Historial de points:
-              {historial.length > 0
+              {mostrarHistorial ? historial.length > 0
                 ? historial.map((item) => {
                     return <h2>{`compro: ${item.name}`}</h2>;
                   })
-                : "no hay historial"}
+                : "no hay historial por el momento" : ""}
             </h3>
-            <button onClick={submit}>Mostrar historial</button>
+            <button className="boton-historial" onClick={submit}>{`${mostrarHistorial ? "ocultar historial" : "mostrar historial"}`}</button>
           </div>
+          <button className="boton-desconectarse" onClick={logout}>
+          Logout
+        </button>
         </div>
       </div>
     );

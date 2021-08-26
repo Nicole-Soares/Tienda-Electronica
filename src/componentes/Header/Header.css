@@ -63,3 +63,22 @@ nav {
   width: 50%;
   height: 15px;
 }
+
+@media (max-width:1111px) {
+
+  .nav-bar{
+    justify-content: flex-start;
+  }
+
+  .nav-item{
+    margin-right: 10px;
+  }
+}
+
+@media (max-width:350px){
+
+  .contenedor-sesion{
+   margin-right: 30px;
+  }
+  
+}

@@ -8,6 +8,24 @@
   border: black 2px solid;
 }
 
+.mobile-menu{
+ display: none;
+ z-index: 1;
+}
+
+ .navigation-checkbox{
+ display: none;
+}
+
+.menu-list-mobile{
+ display: none;
+}
+
+.menu-list-mobile.visible{
+  display: flex;
+  flex-direction: column;
+}
+
 .productos {
   display: flex;
   font-size: 24px;
@@ -61,4 +79,23 @@
   display: flex;
   color: #616161;
   border: solid black 2px ;
+}
+
+
+
+
+@media (max-width:1111px) {
+.contenedor-principal-filtrado{
+   justify-content: flex-start;
+  }
+
+  .mobile-menu{
+    display: flex;
+  }
+
+ .contenedor-filtros{
+   display: none;
+ }
+
+ 
 }

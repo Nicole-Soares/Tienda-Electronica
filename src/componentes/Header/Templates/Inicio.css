@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap');
 
 
 .boton-desconectarse{
@@ -5,6 +6,7 @@
     background-color: transparent;
     border: transparent;
     cursor: pointer;
+   margin-top: 20px;
 }
 
   .flex-container {
@@ -116,4 +118,42 @@
     background-color: transparent;
     border: transparent;
     cursor: pointer;
+  }
+
+  .fondo-perfil{
+    background-image: url("../../../imagenes/batman-fondo.jpg");
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagen-perfil-usuario{
+    border: black 2px solid;
+  }
+
+  .usuario-nombre{
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    box-shadow: 10px 3px 18px 0px rgba(50, 131, 149, 0.51);
+  }
+
+  .usuario-puntos{
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+  }
+
+  .historial-usuario{
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+  }
+
+  .boton-historial{
+    border-radius: 100px;
+    background-color:teal;
+    font-family: 'Open Sans', sans-serif;
   }

@@ -13,9 +13,14 @@ export default function AppProvider({ children }) {
   const [email, setEmail] = useState("");
   const [usernameRegistrar, setUsernameRegistrar] = useState("");
   const [passwordRegistrar, setPasswordRegistrar] = useState("");
-  const [loggedIn, setLoggedIn]  = useState(false);
-  const [user, setUser] = useState ([])
-  
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState([]);
+  const [error, setError] = useState(false);
+  const [historial, setHistorial] = useState("");
+  const [userPoints, setUserPoints] = useState(0);
+  const [contador, setContador] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [mostrarHistorial, setMostrarHistorial] = useState(false)
 
   return (
     <AppContext.Provider
@@ -40,11 +45,18 @@ export default function AppProvider({ children }) {
         setUsernameRegistrar,
         passwordRegistrar,
         setPasswordRegistrar,
-        loggedIn, 
+        loggedIn,
         setLoggedIn,
         user,
         setUser,
-       
+        error,
+        setError,
+        historial,
+        setHistorial,
+        userPoints, setUserPoints,
+        contador, setContador,
+        loading, setLoading,
+        mostrarHistorial, setMostrarHistorial
       }}
     >
       {children}

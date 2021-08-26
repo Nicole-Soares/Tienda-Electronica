@@ -5,7 +5,7 @@ import Listado from "../Listado/Listado";
 import ImagenHeader from "../ImagenHeader/ImagenHeader";
 import Inicio from "../Header/Templates/Inicio";
 import Monedas from "../Header/Templates/Monedas";
-
+import "./Main.css"
 
 function Main() {
   return (

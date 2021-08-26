@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { AppContext } from "../AppContext/AppContext";
+import { useContext } from "react";
+import { AppContext } from "../../../AppContext/AppContext";
 
 function usePagination(data = [], itemsPerPage) {
   const { currentPage, setCurrentPage } = useContext(AppContext);

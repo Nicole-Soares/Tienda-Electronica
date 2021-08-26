@@ -1,35 +1,42 @@
 import React, {  useContext } from "react";
 import { AppContext } from "../AppContext/AppContext";
 import "./Filtrado.css";
+import useFiltros from "./customhooks/useFiltros";
+import { useState } from "react";
+import descarga from "../../imagenes/descarga.png"
 
 export default function Filtrado() {
-  const { productos, setProductos } = useContext(AppContext);
+  const { productos} = useContext(AppContext);
   const { currentPage } = useContext(AppContext);
-  const { productosTotales } = useContext(AppContext);
-  const PER_PAGE = 16;
+  const [hamburguesa, setHamburguesa] = useState(false);
+  
+const PER_PAGE = 16;
+  const {onChangueRecientes, onChanguePrecioBarato, onChangePrecioElevado} = useFiltros()
 
-  const onChangePrecioElevado = () => {
-    
-    const nuevaLista = productosTotales.filter((item) => item.cost > 1000);
-    return setProductos(nuevaLista);
-  };
-
-  const onChanguePrecioBarato = () => {
-    
-    const nuevaListaBarata = productosTotales.filter((item) => item.cost < 999);
-    return setProductos(nuevaListaBarata);
-  };
-
-  const onChangueRecientes = () => {
-    
-    const nuevaListaRecientes = productosTotales.filter(
-      (item) => item.category === "Phones" || item.category === "Audio"
-    );
-    return setProductos(nuevaListaRecientes);
-  };
+    const submit = () =>{
+      setHamburguesa(!hamburguesa)
+    }
+ 
 
   return (
     <div className="contenedor-principal-filtrado">
+      <div className="mobile-menu">
+      <label for="navi-toggle" class="navigation-button">
+        <img src={descarga} alt="" width="30px"/>
+      </label>
+      <input type="checkbox" id="navi-toggle" class="navigation-checkbox" onClick={submit} />
+      <div className={`menu-list-mobile ${hamburguesa ? "visible" : ""}`}>
+        <button className="menu-list-mobile-item"  onClick={onChangueRecientes}>
+        Most recent
+        </button>
+        <button className="menu-list-mobile-item" onClick={onChanguePrecioBarato}>
+        Lowest price
+        </button>
+        <button className="menu-list-mobile-item" onClick={onChangePrecioElevado}>
+        Highest price
+        </button>
+      </div>
+    </div>
       <div className="productos">
         <span>
           {" "}
@@ -50,7 +57,7 @@ export default function Filtrado() {
         </button>
       </div>
 
-      <br></br>
+      
     </div>
   );
 }

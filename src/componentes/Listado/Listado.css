@@ -1,7 +1,5 @@
-.contenedor-de-todo {
-  border: black 1 px solid;
+.contenedor-de-listado-paginacion {
   display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
 }
@@ -13,13 +11,14 @@ nav {
 
 .grilla {
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 50%;
   flex-wrap: wrap;
 }
 
 .listado {
-  width: 25%;
   height: 100%;
   display: flex;
+  justify-content: center;
 }
