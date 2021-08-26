@@ -11,7 +11,7 @@ export default function Filtrado() {
   const [hamburguesa, setHamburguesa] = useState(false);
 
   const PER_PAGE = 16;
-  const { onChangueRecientes, onChanguePrecioBarato, onChangePrecioElevado, onChangeDeleteFilter } =
+  const { onChangueRecientes, onChanguePrecioBarato, onChangePrecioElevado, onChangueDeleteFilter} =
     useFiltros();
 
   const submit = () => {
@@ -21,13 +21,13 @@ export default function Filtrado() {
   return (
     <div className="contenedor-principal-filtrado">
       <div className="mobile-menu">
-        <label for="navi-toggle" class="navigation-button">
+        <label htmlFor="navi-toggle" className="navigation-button">
           <img src={descarga} alt="" width="30px" />
         </label>
         <input
           type="checkbox"
           id="navi-toggle"
-          class="navigation-checkbox"
+          className="navigation-checkbox"
           onClick={submit}
         />
         <div className={`menu-list-mobile ${hamburguesa ? "visible" : ""}`}>
@@ -69,7 +69,7 @@ export default function Filtrado() {
         <button className="priceHig" onClick={onChangePrecioElevado}>
           Highest price
         </button>
-        <button className="deleteFil" onClick={onChangeDeleteFilter} >
+        <button className="deleteFil" onClick={onChangueDeleteFilter} >
           Delete Filters
         </button>
       </div>

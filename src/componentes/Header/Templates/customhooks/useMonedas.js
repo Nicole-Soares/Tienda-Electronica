@@ -29,6 +29,7 @@ export default function useMonedas() {
             }
           );
           let res = await peticion.json();
+          console.log(res)
           setUser({ ...user, points: user.points + userPoints });
         } catch (error) {
           console.error(error);

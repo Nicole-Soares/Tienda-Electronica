@@ -5,7 +5,7 @@ export default function useFiltros() {
   const { setProductos } = useContext(AppContext);
 
   const { productosTotales } = useContext(AppContext);
-  const { productos } = useContext(AppContext);
+  
 
   const onChangePrecioElevado = () => {
     const nuevaLista = productosTotales.filter((item) => item.cost > 1000);
@@ -21,11 +21,12 @@ export default function useFiltros() {
     const nuevaListaRecientes = productosTotales.filter(
       (item) => item.category === "Phones" || item.category === "Audio"
     );
+    console.log(nuevaListaRecientes)
     return setProductos(nuevaListaRecientes);
   };
 
   const onChangueDeleteFilter = () => {
-      
+      console.log("hola")
     return setProductos(productosTotales)
   }
 
