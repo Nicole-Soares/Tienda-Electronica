@@ -10,13 +10,7 @@ export default function Monedas() {
   const { loggedIn } = useContext(AppContext);
   const { user, setUser } = useContext(AppContext);
   const [userPoints, setUserPoints] = useState(0);
-  const [time, setTime] = useState("");
   const [contador, setContador] = useState(0);
-
-  const fecha = new Date();
-
-  console.log(fecha);
-  console.log(contador);
 
   async function ingresarPuntos() {
     if (contador === 1) {
@@ -24,14 +18,13 @@ export default function Monedas() {
     } else {
       if (userPoints === 1000 || userPoints === 5000 || userPoints === 7500) {
         try {
-          setTime(new Date());
           setContador(1);
           let peticion = await fetch(
             "https://coding-challenge-api.aerolab.co/user/points",
             {
               method: "POST",
               body: JSON.stringify({
-                amount: userPoints,
+              amount: userPoints,
               }),
               headers: {
                 "Content-type": "application/json; charset=UTF-8",

@@ -24,7 +24,6 @@ export default function Listado() {
         options
       );
       let res = await peticion.json();
-      console.log(res);
       setProductosTotales(res);
       setProductos(res);
     } catch (error) {
@@ -69,7 +68,8 @@ export default function Listado() {
             return (
               <div className="listado">
                 <Producto
-                  key={item.id}
+                  key={item._id}
+                  id={item._id}
                   imagen={item.img.url}
                   nombre={item.name}
                   precio={item.cost}

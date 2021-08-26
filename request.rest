@@ -17,5 +17,14 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "amount": 150
+    "amount":
+}
+
+###Post Redeem
+POST https://coding-challenge-api.aerolab.co/redeem HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "productoId":
 }

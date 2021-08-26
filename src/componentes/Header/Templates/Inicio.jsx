@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { AppContext } from "../../AppContext/AppContext";
 import "./Inicio.css";
 
@@ -15,6 +16,7 @@ function Inicio() {
   const { usernameRegistrar, setUsernameRegistrar } = useContext(AppContext);
   const { passwordRegistrar, setPasswordRegistrar } = useContext(AppContext);
   const { user, setUser } = useContext(AppContext);
+  const [historial, setHistorial] = useState("");
 
   const login = async () => {
     if (password === "" || username === "") {
@@ -36,10 +38,38 @@ function Inicio() {
       }
     }
   };
+/*useEffect(() => {
+    try {
+      fetch("https://coding-challenge-api.aerolab.co/user/history", {
+        header: { Authorization: `Bearer ${token}` },
+      })
+        .then((respuesta) => {
+          respuesta.json();
+        })
+        .then((data) => {
+          console.log(data)
+          setHistorial(data);
+          
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  }, [setUser]); */
 
   const logout = () => {
     setLoggedIn(false);
   };
+
+  const submit = async() =>{
+    try{
+      let peticion= await fetch("https://coding-challenge-api.aerolab.co/user/history" , {
+        header: { Authorization: `Bearer ${token}`}});
+      let res = await peticion.json();
+      setHistorial(res)
+    } catch(error){
+      console.log(error)
+    }
+  }
 
   if (loggedIn) {
     return (
@@ -51,7 +81,15 @@ function Inicio() {
           <div>
             <h3>{user.name}</h3>
             <h3>{user.points}</h3>
-            <h3>Historial de points:{user.redeemHistory}</h3>
+            <h3>
+              Historial de points:
+              {historial.length > 0
+                ? historial.map((item) => {
+                    return <h2>{`compro: ${item.name}`}</h2>;
+                  })
+                : "no hay historial"}
+            </h3>
+            <button onClick={submit}>Mostrar historial</button>
           </div>
         </div>
       </div>
@@ -60,7 +98,11 @@ function Inicio() {
     return (
       <div className="flex-container centered">
         <div className={`card-login ${registrar ? "transparente" : ""}`}>
-        <p>(el usuario y la contraseña pueden ser cualquiera (no dejar campos vacios), no esta conectado a una api que acepte recibir usuarios nuevos y el registrar es meramente estetico :))</p>
+          <p>
+            (el usuario y la contraseña pueden ser cualquiera (no dejar campos
+            vacios), no esta conectado a una api que acepte recibir usuarios
+            nuevos y el registrar es meramente estetico :))
+          </p>
           <div className="inputContainer">
             <input
               className={`${error ? "hasError" : "otra"}`}

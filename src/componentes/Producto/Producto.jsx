@@ -3,27 +3,42 @@ import "./Producto.css";
 import { AppContext } from "../AppContext/AppContext";
 import buy from "../../imagenes/buy-blue.svg";
 
-
+let token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
+let options = { headers: { Autorization: `Bearer ${token}` } };
 
 export default function Producto(props) {
   const { user, setUser, loggedIn } = useContext(AppContext);
-  
 
+  async function submit() {
+    if (user.points >= props.precio) {
+      setUser({ ...user, points: user.points - props.precio });
+      window.alert("transaccion exitosa!");
 
+      try {
+        let peticion = await fetch(
+          "https://coding-challenge-api.aerolab.co/redeem",
+          {
+            method: "POST",
+            body: JSON.stringify({
+            productId: props.id,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        let res = await peticion.json();
+        console.log(res)
+      } catch (error) {
+        console.error(error);
+      }
 
-  const submit = () =>{
-    if(user.points >= props.precio){
-      setUser({...user,
-      points:user.points - props.precio})
-      window.alert("transaccion exitosa!")
+    } else {
+      window.alert("La transaccion no se puede hacer");
     }
-    else{
-      window.alert("La transaccion no se puede hacer")
-    }
-    
   }
-
-  
 
   return (
     <div className={"contenedor-principal"}>
@@ -40,12 +55,12 @@ export default function Producto(props) {
             <h3 className="precio">{props.precio}</h3>
             <div className="circulo-precio"></div>
           </div>
-         
+
           <div>
             {!loggedIn ? (
               <img src={buy} alt="bolsa compra"></img>
-            ) : user.points === props.precio || user.points> props.precio ? (
-              <button className="boton-comprar" onClick={submit} >
+            ) : user.points === props.precio || user.points > props.precio ? (
+              <button className="boton-comprar" onClick={submit}>
                 Redeem Now
               </button>
             ) : (
