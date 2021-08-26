@@ -1,25 +1,28 @@
 {
   "files": {
-    "main.css": "/tienda-electronica/static/css/main.fccf262f.chunk.css",
-    "main.js": "/tienda-electronica/static/js/main.8f92b0b2.chunk.js",
-    "main.js.map": "/tienda-electronica/static/js/main.8f92b0b2.chunk.js.map",
-    "runtime-main.js": "/tienda-electronica/static/js/runtime-main.87154ad9.js",
-    "runtime-main.js.map": "/tienda-electronica/static/js/runtime-main.87154ad9.js.map",
-    "static/js/2.70e7535c.chunk.js": "/tienda-electronica/static/js/2.70e7535c.chunk.js",
-    "static/js/2.70e7535c.chunk.js.map": "/tienda-electronica/static/js/2.70e7535c.chunk.js.map",
-    "static/js/3.41415648.chunk.js": "/tienda-electronica/static/js/3.41415648.chunk.js",
-    "static/js/3.41415648.chunk.js.map": "/tienda-electronica/static/js/3.41415648.chunk.js.map",
+    "main.css": "/tienda-electronica/static/css/main.a4fd37ef.chunk.css",
+    "main.js": "/tienda-electronica/static/js/main.9ee29d7a.chunk.js",
+    "main.js.map": "/tienda-electronica/static/js/main.9ee29d7a.chunk.js.map",
+    "runtime-main.js": "/tienda-electronica/static/js/runtime-main.4cc76a62.js",
+    "runtime-main.js.map": "/tienda-electronica/static/js/runtime-main.4cc76a62.js.map",
+    "static/js/2.eb6023b7.chunk.js": "/tienda-electronica/static/js/2.eb6023b7.chunk.js",
+    "static/js/2.eb6023b7.chunk.js.map": "/tienda-electronica/static/js/2.eb6023b7.chunk.js.map",
+    "static/js/3.02d3c727.chunk.js": "/tienda-electronica/static/js/3.02d3c727.chunk.js",
+    "static/js/3.02d3c727.chunk.js.map": "/tienda-electronica/static/js/3.02d3c727.chunk.js.map",
     "index.html": "/tienda-electronica/index.html",
-    "static/css/main.fccf262f.chunk.css.map": "/tienda-electronica/static/css/main.fccf262f.chunk.css.map",
-    "static/js/2.70e7535c.chunk.js.LICENSE.txt": "/tienda-electronica/static/js/2.70e7535c.chunk.js.LICENSE.txt",
+    "static/css/main.a4fd37ef.chunk.css.map": "/tienda-electronica/static/css/main.a4fd37ef.chunk.css.map",
+    "static/js/2.eb6023b7.chunk.js.LICENSE.txt": "/tienda-electronica/static/js/2.eb6023b7.chunk.js.LICENSE.txt",
     "static/media/aerolab-logo.40b78ac9.svg": "/tienda-electronica/static/media/aerolab-logo.40b78ac9.svg",
+    "static/media/Inicio.css": "/tienda-electronica/static/media/batman-fondo.b9d49495.jpg",
     "static/media/buy-blue.13783e2a.svg": "/tienda-electronica/static/media/buy-blue.13783e2a.svg",
-    "static/media/header.b6f067c6.png": "/tienda-electronica/static/media/header.b6f067c6.png"
+    "static/media/header.b6f067c6.png": "/tienda-electronica/static/media/header.b6f067c6.png",
+    "static/media/imagen-perfil.32f979aa.jpg": "/tienda-electronica/static/media/imagen-perfil.32f979aa.jpg",
+    "static/media/Monedas.css": "/tienda-electronica/static/media/monedas.35308020.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.87154ad9.js",
-    "static/js/2.70e7535c.chunk.js",
-    "static/css/main.fccf262f.chunk.css",
-    "static/js/main.8f92b0b2.chunk.js"
+    "static/js/runtime-main.4cc76a62.js",
+    "static/js/2.eb6023b7.chunk.js",
+    "static/css/main.a4fd37ef.chunk.css",
+    "static/js/main.9ee29d7a.chunk.js"
   ]
 }
