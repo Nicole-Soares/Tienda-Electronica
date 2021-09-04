@@ -1,8 +1,7 @@
 import { useContext} from "react";
 import { AppContext } from "../../../AppContext/AppContext";
+import token from "../../../../variables/token"
 
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
 let options = { headers: { Authorization: `Bearer ${token}` } };
 
 export default function useListado() {
@@ -18,11 +17,11 @@ export default function useListado() {
         options
       );
       let res = await peticion.json();
-      console.log(res);
+      
       setProductosTotales(res);
       setProductos(res);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     setLoading(false);
   }

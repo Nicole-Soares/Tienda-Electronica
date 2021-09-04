@@ -49,7 +49,7 @@ export default function useInicio() {
         }
       );
       let res = await peticion.json();
-      console.log(res);
+      
       setHistorial(res);
     } catch (error) {
       console.log(error);

@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import "./Producto.css";
 import { AppContext } from "../AppContext/AppContext";
 import buy from "../../imagenes/buy-blue.svg";
+import token from "../../variables/token";
 
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTExOGYxM2Q5ZmMzODAwMjFmNjM4NDUiLCJpYXQiOjE2Mjg1NDA2OTJ9.PA0rEWI4gDP8xHFtuty2J7uJW1yCTVcnDqWyDw8UVZQ";
 
 
 export default function Producto(props) {
@@ -41,7 +40,7 @@ export default function Producto(props) {
   }
 
   return (
-    <div className={"contenedor-principal"}>
+    <div className={"contenedor-principal"} >
       <div className="producto">
         <div className="imagen">
           <img src={props.imagen} width="100%" alt="producto" />

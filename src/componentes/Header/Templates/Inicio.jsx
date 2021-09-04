@@ -54,6 +54,7 @@ function Inicio() {
               variant="outlined"
               shape="rounded"
               onChange={handleChange}
+              key="chau"
             />
             <h3 className="historial-usuario">
               Historial de points:

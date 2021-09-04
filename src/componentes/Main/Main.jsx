@@ -9,7 +9,7 @@ import "./Main.css"
 
 function Main() {
   return (
-    <main className="main">
+    <div className="main">
       <Switch>
         <Route path="/tienda-electronica">
           <ImagenHeader />
@@ -21,7 +21,7 @@ function Main() {
         </Route>
         <Route path="/monedas" component={Monedas} />
       </Switch>
-    </main>
+    </div>
   );
 }
 

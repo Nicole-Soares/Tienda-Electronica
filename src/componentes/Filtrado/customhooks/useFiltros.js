@@ -21,12 +21,12 @@ export default function useFiltros() {
     const nuevaListaRecientes = productosTotales.filter(
       (item) => item.category === "Phones" || item.category === "Audio"
     );
-    console.log(nuevaListaRecientes)
+    
     return setProductos(nuevaListaRecientes);
   };
 
   const onChangueDeleteFilter = () => {
-      console.log("hola")
+     
     return setProductos(productosTotales)
   }
 
