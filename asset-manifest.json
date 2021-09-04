@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tienda-electronica/static/css/main.de8bca10.chunk.css",
-    "main.js": "/tienda-electronica/static/js/main.8b4eca8f.chunk.js",
-    "main.js.map": "/tienda-electronica/static/js/main.8b4eca8f.chunk.js.map",
+    "main.js": "/tienda-electronica/static/js/main.9c01d1a6.chunk.js",
+    "main.js.map": "/tienda-electronica/static/js/main.9c01d1a6.chunk.js.map",
     "runtime-main.js": "/tienda-electronica/static/js/runtime-main.4cc76a62.js",
     "runtime-main.js.map": "/tienda-electronica/static/js/runtime-main.4cc76a62.js.map",
     "static/js/2.a501396c.chunk.js": "/tienda-electronica/static/js/2.a501396c.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.4cc76a62.js",
     "static/js/2.a501396c.chunk.js",
     "static/css/main.de8bca10.chunk.css",
-    "static/js/main.8b4eca8f.chunk.js"
+    "static/js/main.9c01d1a6.chunk.js"
   ]
 }
